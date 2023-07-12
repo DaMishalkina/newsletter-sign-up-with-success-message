@@ -1,0 +1,15 @@
+.modal-wrapper {
+    height: 100vh;
+}
+.modal__container {
+    height: 100vh;
+    max-height: 100vh;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding-bottom: 41px;
+}
+@media (min-width: 1024px) {
+
+}
