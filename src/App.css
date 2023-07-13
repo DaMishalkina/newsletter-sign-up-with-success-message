@@ -1,16 +1,25 @@
 :root {
-  --primary-color:  hsl(4, 100%, 67%);
-  --dark-state-grey:  hsl(234, 29%, 20%);
-  --charcoal-gray: hsl(235, 18%, 26%);
+  --primary-color: hsl(4, 100%, 67%);
+  --dark-state-grey: hsl(234, 29%, 20%);
+  --charcoal-grey:hsl(235, 18%, 26%);
   --grey: hsl(231, 7%, 60%);
   --white: hsl(0, 0%, 100%);
   --scren-lg: 1440px;
   --paragraph-size: 16px;
   --h1-size: 32px;
+  --doc-height: 100%;
 }
 body {
   font-family: Roboto, sans-serif;
   background: #36384D;
+  padding: 0;
+  margin: 0;
+  /*height: 100vh; !* fallback for Js load *!*/
+  /*height: var(--doc-height);*/
+}
+
+#root, main {
+  /*height: 100%;*/
 }
 
 .modal-picture, .modal-picture__image{
@@ -30,7 +39,27 @@ body {
   padding: 46px 18px 0 18px;
   display: flex;
   flex-direction: column;
+  gap: 45px;
+}
+
+.content-section__text-item {
+  display: flex;
+  flex-direction: column;
   gap: 24px;
+  color: var(--charcoal-grey);
+  font-size: var(--paragraph-size);
+}
+
+.modal__message {
+  margin: 0;
+}
+.content-section__action-item {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  transform: translate3D(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .modal__header {

@@ -1,5 +1,6 @@
 import React from "react";
-import { ListItem } from "./ListItem";
+import { ListItem } from "./ListItem/ListItem";
+import "./CustomList.css";
 
 type ListItem = string;
 type List = ListItem[];
@@ -9,7 +10,7 @@ interface Props {
 
 export const CustomList = ({list}: Props) => {
     return (
-        <ul>
+        <ul className="list-container">
             {list.map((item, index) => (
                 <ListItem item={item} key={index} />
             ))}

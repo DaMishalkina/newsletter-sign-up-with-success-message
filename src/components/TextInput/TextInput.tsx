@@ -26,7 +26,14 @@ export const TextInput = ({
     }, [defaultValue])
     return (
         <label className="text-input-container">
-            {label}
+            <span>
+               {label}
+                {error?.length > 0 &&
+                    <span className="text-input-container__error-message">
+                    {error}
+                </span>
+                }
+            </span>
             <input
                 name={name}
                 {...(id.length > 0 && {id: id})}
