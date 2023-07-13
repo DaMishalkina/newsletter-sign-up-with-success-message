@@ -3,7 +3,9 @@
     min-height: 100vh;
 }
 .modal__container {
+    min-height: 100vh;
     height: 100%;
+    box-sizing: border-box;
     background: var(--white);
     display: flex;
     flex-direction: column;

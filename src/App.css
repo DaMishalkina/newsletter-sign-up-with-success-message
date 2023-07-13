@@ -36,7 +36,7 @@ body {
 }
 
 .modal__content-section {
-  padding: 46px 18px 0 18px;
+  padding: 46px 24px 0 24px;
   display: flex;
   flex-direction: column;
   gap: 45px;
@@ -61,11 +61,29 @@ body {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   margin-bottom: 0;
+  margin-top: auto;
 }
 
 .modal__header {
   font-size: var(--h1-size);
   margin: 0;
+}
+
+.modal__svg {
+  margin-top: 102px;
+  width: 64px;
+  height: 64px;
+}
+
+.modal__message--bold {
+  font-weight: 700;
+}
+
+.modal-content-section--success {
+  height: 100vh;
+  max-height: calc(100vh - 41px);
+  align-items: stretch;
+  box-sizing: border-box;
 }
 
 

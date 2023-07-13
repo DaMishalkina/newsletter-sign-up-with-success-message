@@ -14,7 +14,7 @@
     "buttonLabel": "Subscribe to monthly newsletter"
   },
   "successMessageData": {
-    "header": "Thanks for subscribing",
+    "header": "Thanks for subscribing!",
     "message": "A confirmation email has been sent to ${email}. Please open it and click the button inside to confirm your subscription",
     "buttonLabel": "Dismiss message"
   }
