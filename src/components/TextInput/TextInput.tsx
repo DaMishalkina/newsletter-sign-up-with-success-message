@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import classNames from "classnames";
+import "./TextInput.css";
 interface Props {
     defaultValue: string | number,
     onChange: (value: string | number) => void,

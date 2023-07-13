@@ -1,4 +1,4 @@
-import React, {ReactNode, useEffect, useState} from 'react';
+import React, {ReactNode, useEffect, useState, FormEvent} from 'react';
 import './App.css';
 import {TextInput} from "./components/TextInput/TextInput";
 import {Modal} from "./components/Modal/Modal";
@@ -12,6 +12,12 @@ type JSONData = Record<string, unknown>
 const signupFormData: JSONData = content.signupFormData;
 const successMessage: JSONData = content.successMessageData;
 
+const isEmail = (email: string) => {
+    return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
+}
+
+
+
 
 function App() {
     const [inputValue, setInputValue] = useState<string | number>("");
@@ -24,6 +30,13 @@ function App() {
     const onInputChange = (value: string | number, id?: string) => {
         setInputValue(value)
         setError("");
+    }
+    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        if(!isEmail(inputValue as string)){
+            setError(signupFormData?.inputErrorMessage as string)
+        }
+        console.log(inputValue);
     }
     // useEffect(() => {
     //     window.addEventListener("resize", documentHeight)
@@ -52,12 +65,16 @@ function App() {
                             </p>
                             <CustomList list={signupFormData?.list as string[]} />
                         </div>
-                        <form className="content-section__action-item">
+                        <form className="content-section__action-item" onSubmit={handleSubmit}>
                             <TextInput
+                                label={signupFormData?.inputLabel as string}
+                                placeholder={signupFormData?.inputPlaceholder as string}
                                 defaultValue={inputValue}
-                                onChange={setInputValue}
+                                onChange={onInputChange}
                                 error={error} />
-                            <Button>{signupFormData?.buttonLabel as string}</Button>
+                            <Button type="submit">
+                                {signupFormData?.buttonLabel as string}
+                            </Button>
                         </form>
                     </div>
                 </>

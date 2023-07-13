@@ -4,7 +4,7 @@
   --charcoal-grey:hsl(235, 18%, 26%);
   --grey: hsl(231, 7%, 60%);
   --white: hsl(0, 0%, 100%);
-  --scren-lg: 1440px;
+  --screen-lg: 1440px;
   --paragraph-size: 16px;
   --h1-size: 32px;
   --doc-height: 100%;
@@ -60,6 +60,7 @@ body {
   transform: translate3D(0, 0, 0);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  margin-bottom: 0;
 }
 
 .modal__header {
