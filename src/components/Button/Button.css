@@ -28,11 +28,20 @@
 .button span {
     position: relative;
     z-index: 3;
+    white-space: nowrap;
 }
 
-.button:focus::after {
+.button:focus::after, .button:active::after {
     opacity: 1;
 }
+.button--active::after {
+    opacity: 1;
+}
+
+.button--inactive::after {
+    opacity: 0;
+}
+
 .button:hover {
     background: var(--charcoal-grey);
 }

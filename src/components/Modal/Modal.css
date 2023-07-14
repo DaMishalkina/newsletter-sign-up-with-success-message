@@ -19,7 +19,7 @@
     }
     .modal__container {
         position: absolute;
-        height: fit-content;
+        height: auto;
         min-height: unset;
         left: 50%;
         top: 50%;
