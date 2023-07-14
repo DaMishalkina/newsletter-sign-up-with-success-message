@@ -39,3 +39,6 @@
     background-color: #FFE8E6;
     border: 1px solid var(--primary-color);
 }
+.text-input-container__input--error::placeholder {
+    color: var(--primary-color);
+}

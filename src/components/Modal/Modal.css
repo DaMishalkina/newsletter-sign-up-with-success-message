@@ -14,5 +14,19 @@
     overflow: hidden;
 }
 @media (min-width: 1024px) {
-
+    .modal-wrapper {
+        position: relative;
+    }
+    .modal__container {
+        position: absolute;
+        height: fit-content;
+        min-height: unset;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0 auto;
+        padding: 24px;
+        border-radius: 35px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
 }

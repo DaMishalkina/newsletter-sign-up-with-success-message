@@ -46,9 +46,9 @@ function App() {
     }
     return (
         <main>
-            {!isSuccess ?
-                <Modal>
-                    <>
+            <Modal>
+                {!isSuccess ?
+                    <div className="modal--signup">
                         <picture className="modal-picture modal__picture">
                             <source
                                 srcSet={desktopImage}
@@ -80,47 +80,47 @@ function App() {
                                 </Button>
                             </form>
                         </div>
-                    </>
-                </Modal>
-                :
-                <Modal>
-                    <div className="modal-content-section--success modal__content-section">
-                        <svg className="modal__svg"
-                             xmlns="http://www.w3.org/2000/svg"
-                             width="64" height="64"
-                             viewBox="0 0 64 64">
-                            <defs>
-                                <linearGradient id="a" x1="100%" x2="0%" y1="0%" y2="100%">
-                                    <stop offset="0%" stopColor="#FF6A3A"/>
-                                    <stop offset="100%" stopColor="#FF527B"/>
-                                </linearGradient>
-                            </defs>
-                            <g fill="none">
-                                <circle cx="32" cy="32" r="32" fill="url(#a)"/>
-                                <path stroke="#FFF" strokeWidth="4" d="m18.286 34.686 8.334 7.98 19.094-18.285"/>
-                            </g>
-                        </svg>
-                        <div className="content-section__text-item">
-                            <h1 className="modal__header">{successMessage?.header as ReactNode}</h1>
-                            <p className="modal__message">
-                                {/* eslint-disable-next-line no-template-curly-in-string */}
-                                {reactStringReplace(successMessage?.message as string, "${email}",
-                                    (match, i) => (
-                                    <span key={i} className="modal__message--bold">{inputValue}</span>
-                                    )
-                                )}
-                            </p>
-                        </div>
-                        <div className="content-section__action-item">
-                            <Button
-                                onClick={toggleSuccessMessage}
-                            >
-                                {successMessage?.buttonLabel as string}
-                            </Button>
+                    </div>
+                    :
+                    <div className="modal--success">
+                        <div className="modal-content-section--success modal__content-section">
+                            <svg className="modal__svg"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 width="64" height="64"
+                                 viewBox="0 0 64 64">
+                                    <defs>
+                                        <linearGradient id="a" x1="100%" x2="0%" y1="0%" y2="100%">
+                                            <stop offset="0%" stopColor="#FF6A3A"/>
+                                            <stop offset="100%" stopColor="#FF527B"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <g fill="none">
+                                        <circle cx="32" cy="32" r="32" fill="url(#a)"/>
+                                        <path stroke="#FFF" strokeWidth="4" d="m18.286 34.686 8.334 7.98 19.094-18.285"/>
+                                    </g>
+                            </svg>
+                            <div className="content-section__text-item">
+                                <h1 className="modal__header">{successMessage?.header as ReactNode}</h1>
+                                <p className="modal__message">
+                                    {/* eslint-disable-next-line no-template-curly-in-string */}
+                                    {reactStringReplace(successMessage?.message as string, "${email}",
+                                        (match, i) => (
+                                        <span key={i} className="modal__message--bold">{inputValue}</span>
+                                        )
+                                    )}
+                                </p>
+                            </div>
+                            <div className="content-section__action-item">
+                                <Button
+                                    onClick={toggleSuccessMessage}
+                                >
+                                    {successMessage?.buttonLabel as string}
+                                </Button>
+                            </div>
                         </div>
                     </div>
-                </Modal>
-            }
+                }
+            </Modal>
         </main>
     );
 }
