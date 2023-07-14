@@ -14,15 +14,11 @@ body {
   background: #36384D;
   padding: 0;
   margin: 0;
-  /*height: 100vh; !* fallback for Js load *!*/
-  /*height: var(--doc-height);*/
 }
 
-#root, main {
-  /*height: 100%;*/
-}
 
 .modal-picture, .modal-picture__image{
+  display: flex;
   width: 100%;
   height: auto;
   max-height: 284px;
@@ -35,38 +31,10 @@ body {
   object-fit: cover;
 }
 
-.modal__content-section {
-  padding: 46px 24px 0 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 45px;
-}
-
-.content-section__text-item {
+.action-item__form {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  color: var(--charcoal-grey);
-  font-size: var(--paragraph-size);
-}
-
-.modal__message {
-  margin: 0;
-}
-.content-section__action-item {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  transform: translate3D(0, 0, 0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  margin-bottom: 0;
-  margin-top: auto;
-}
-
-.modal__header {
-  font-size: var(--h1-size);
-  margin: 0;
 }
 
 .modal__svg {
@@ -86,7 +54,7 @@ body {
   box-sizing: border-box;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   .modal--signup {
     height: 100%;
     display: flex;
@@ -107,17 +75,6 @@ body {
   .modal-picture__image {
     object-fit: contain;
     min-height: 100%;
-  }
-
-  .modal__content-section {
-    box-sizing: border-box;
-    width: 400px;
-    max-width: 400px;
-    padding: 0 64px 0 40px;
-  }
-  .modal-content-section--success {
-    height: fit-content;
-    padding: 24px 40px 40px 40px;
   }
   .modal__svg {
     margin-top: 0;

@@ -1,0 +1,47 @@
+.modal__content-section {
+    padding: 46px 24px 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
+
+.content-section__text-item {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    color: var(--charcoal-grey);
+    font-size: var(--paragraph-size);
+}
+
+.modal__message {
+    margin: 0;
+}
+.content-section__action-item {
+    backface-visibility: hidden;
+    margin-bottom: 0;
+    margin-top: auto;
+}
+
+.action-item__form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.modal__header {
+    font-size: var(--h1-size);
+    margin: 0;
+}
+
+@media (min-width: 1200px) {
+    .modal__content-section {
+        box-sizing: border-box;
+        width: 400px;
+        max-width: 400px;
+        padding: 0 64px 0 40px;
+    }
+    .modal-content-section--success {
+        height: fit-content;
+        padding: 24px 40px 40px 40px;
+    }
+}
