@@ -1,8 +1,8 @@
 import React from "react";
 import "./ListItem.css";
 import {IconList} from "../../svg/IconList";
+import {ListItemType} from "../types/type";
 
-type ListItemType = string;
 
 interface Props {
     item: ListItemType

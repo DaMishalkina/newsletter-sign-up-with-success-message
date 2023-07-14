@@ -1,4 +1,4 @@
-import React, {ReactNode, useState, FormEvent} from "react";
+import React, {useState, FormEvent} from "react";
 import reactStringReplace from "react-string-replace";
 import "./App.css";
 import {TextInput} from "./components/TextInput/TextInput";
@@ -10,10 +10,11 @@ import {IconSuccess} from "./components/svg/IconSuccess";
 import mobileImage from "./assets/images/illustration-sign-up-mobile.svg";
 import desktopImage from "./assets/images/illustration-sign-up-desktop.svg";
 import content from "./data/content.json";
+import {SuccessMessage, SignupFormDataType} from "./data/types/contentType";
 
-type JSONData = Record<string, unknown>
-const signupFormData: JSONData = content.signupFormData;
-const successMessage: JSONData = content.successMessageData;
+
+const signupFormData: SignupFormDataType = content.signupFormData;
+const successMessage: SuccessMessage = content.successMessageData;
 
 const isEmail = (email: string) => {
     return /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
@@ -33,7 +34,7 @@ function App() {
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         if(!isEmail(inputValue as string)){
-            setError(signupFormData?.inputErrorMessage as string)
+            setError(signupFormData?.inputErrorMessage)
         } else {
             setTimeout(() => {
                 setIsSuccess(true);
@@ -63,19 +64,19 @@ function App() {
                             />
                         </picture>
                         <ModalContent
-                            header={signupFormData?.header as string}
-                            message={signupFormData?.message as ReactNode}
-                            textChildren={<CustomList list={signupFormData?.list as string[]} />}
+                            header={signupFormData?.header}
+                            message={signupFormData?.message}
+                            textChildren={<CustomList list={signupFormData?.list} />}
                             actionChildren={
                                 <form className="action-item__form" onSubmit={handleSubmit}>
                                     <TextInput
-                                        label={signupFormData?.inputLabel as string}
-                                        placeholder={signupFormData?.inputPlaceholder as string}
+                                        label={signupFormData?.inputLabel}
+                                        placeholder={signupFormData?.inputPlaceholder}
                                         defaultValue={inputValue}
                                         onChange={onInputChange}
                                         error={error} />
                                     <Button type="submit">
-                                        {signupFormData?.buttonLabel as string}
+                                        {signupFormData?.buttonLabel}
                                     </Button>
                                 </form>
                             }
@@ -88,10 +89,10 @@ function App() {
                             svg={
                                 <IconSuccess className="modal__svg" />
                             }
-                            header={successMessage?.header as string}
+                            header={successMessage?.header}
                             message={
                                 // eslint-disable-next-line no-template-curly-in-string
-                                reactStringReplace(successMessage?.message as string, "${email}",
+                                reactStringReplace(successMessage?.message, "${email}",
                                     (match, i) => (
                                         <span key={i} className="modal__message--bold">{inputValue}</span>
                                     )
@@ -101,7 +102,7 @@ function App() {
                                 <Button
                                     onClick={toggleSuccessMessage}
                                 >
-                                    {successMessage?.buttonLabel as string}
+                                    {successMessage?.buttonLabel}
                                 </Button>
                             }
                         />

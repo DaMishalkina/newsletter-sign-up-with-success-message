@@ -1,11 +1,10 @@
 import React from "react";
 import { ListItem } from "./ListItem/ListItem";
+import {ListType} from "./types/type";
 import "./CustomList.css";
 
-type ListItem = string;
-type List = ListItem[];
 interface Props {
-    list: List
+    list: ListType
 }
 
 export const CustomList = ({list}: Props) => {
